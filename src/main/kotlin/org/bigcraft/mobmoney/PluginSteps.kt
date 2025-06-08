@@ -1,6 +1,5 @@
 package org.bigcraft.mobmoney
 
-import com.google.gson.Gson
 import com.google.inject.CreationException
 import com.google.inject.Guice
 import com.google.inject.Stage
@@ -18,9 +17,7 @@ import me.wyne.wutils.log.*
 import net.kyori.adventure.platform.bukkit.BukkitAudiences
 import org.bigcraft.mobmoney.MobMoney.Companion.EMPTY_CONFIGURATION
 import org.bigcraft.mobmoney.MobMoney.Companion.log
-import org.bigcraft.mobmoney.module.CommandModule
-import org.bigcraft.mobmoney.module.PlaceholderModule
-import org.bigcraft.mobmoney.module.PluginModule
+import org.bigcraft.mobmoney.module.*
 import java.io.File
 import java.util.concurrent.Executors
 
@@ -89,6 +86,8 @@ object InitializeInjector : PluginStep<MobMoney> {
             MobMoney.instance.injector = Guice.createInjector(
                 Stage.PRODUCTION,
                 PluginModule(plugin),
+                DropModule,
+                ConfigModule,
                 PlaceholderModule,
                 CommandModule
             )

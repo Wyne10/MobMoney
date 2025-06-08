@@ -1,8 +1,14 @@
 ### Messages
 
 ## Info
+info-drop-chat: '<white>Вы убили <entity> и получили %points_<currency-key>_color-mm%%points_<currency-key>_symbol%<amount>'
+info-drop-action-bar: '<white>Вы убили <entity> и получили %points_<currency-key>_color-mm%%points_<currency-key>_symbol%<amount>'
 
 ## Error
 
 ## Success
 success-plugin-reload: "<green>Плагин перезагружен!"
+
+
+# Mobs
+PIG: "свинью"

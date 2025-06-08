@@ -13,8 +13,8 @@ kotlin {
 
 dependencies {
     compileOnly(libs.paperApi)
-    compileOnly(libs.placeholderApi)
     compileOnly(libs.commandApi)
+    compileOnly(libs.infPoints)
 
     implementation(libs.guice)
     implementation(libs.adventureMini)
@@ -71,7 +71,7 @@ bukkit {
     author = findProperty("author").toString()
     main = "org.bigcraft.mobmoney.MobMoney"
     apiVersion = "1.16"
-    softDepend = listOf("PlaceholderAPI", "CommandAPI")
+    softDepend = listOf("CommandAPI", "InfPoints")
     permissions {
         register("mobmoney.*") {
             children = listOf("mobmoney.reload")

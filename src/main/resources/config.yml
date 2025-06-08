@@ -5,3 +5,13 @@ usePlayerLanguage: true
 serializer: MINI_MESSAGE
 # OFF/FATAL/ERROR/WARN/INFO/DEBUG/TRACE/ALL
 log-level: INFO
+
+multiplier:
+  default:
+    multiplier: 1.0
+    permission: 'group.default'
+
+drop:
+  ANIMALS: 1.0..3.0
+  MONSTERS: 5.0..10.0
+  PIG: 20.0..55.0
