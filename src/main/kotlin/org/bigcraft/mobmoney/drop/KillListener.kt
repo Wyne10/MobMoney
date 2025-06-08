@@ -46,6 +46,13 @@ class KillListener @Inject constructor(
             player.placeholderComponent("info-drop-chat", currencyConfig.getReplacements(drop))
                 .replace("entity" replaceComponent entityName).sendMessage(player)
         }
+
+        if (messageConfig.showActionBarMessage) {
+            player.sendActionBar(
+                player.placeholderComponent("info-drop-action-bar", currencyConfig.getReplacements(drop))
+                    .replace("entity" replaceComponent entityName).get(),
+            )
+        }
     }
 
 }
