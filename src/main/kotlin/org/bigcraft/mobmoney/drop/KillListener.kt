@@ -48,10 +48,8 @@ class KillListener @Inject constructor(
         }
 
         if (messageConfig.showActionBarMessage) {
-            player.sendActionBar(
-                player.placeholderComponent("info-drop-action-bar", currencyConfig.getReplacements(drop))
-                    .replace("entity" replaceComponent entityName).get(),
-            )
+            player.placeholderComponent("info-drop-action-bar", currencyConfig.getReplacements(drop))
+                .replace("entity" replaceComponent entityName).sendActionBar(player)
         }
     }
 

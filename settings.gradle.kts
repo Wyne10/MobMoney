@@ -6,6 +6,7 @@ rootProject.name = "MobMoney"
 
 dependencyResolutionManagement {
     repositories {
+        mavenLocal()
         mavenCentral()
         maven {
             url = uri("https://jitpack.io/")
