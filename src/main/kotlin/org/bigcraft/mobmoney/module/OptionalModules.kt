@@ -19,11 +19,6 @@ private class OptionalModule(
     }
 }
 
-val PlaceholderModule: AbstractModule = OptionalModule(
-    className = "me.clip.placeholderapi.PlaceholderAPI",
-    exceptionMessage = "PlaceholderAPI not found, placeholders are not registered"
-)
-
 val CommandModule: AbstractModule = OptionalModule(
     className = "dev.jorel.commandapi.CommandAPI",
     exceptionMessage = "CommandAPI not found, commands are not registered",

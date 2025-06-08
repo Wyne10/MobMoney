@@ -11,4 +11,5 @@ success-plugin-reload: "<green>Plugin reloaded!"
 
 
 # Mobs
+# https://jd.papermc.io/paper/1.16.5/org/bukkit/entity/EntityType.html
 PIG: "a pig"

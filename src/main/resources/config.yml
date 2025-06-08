@@ -11,6 +11,8 @@ multiplier:
     multiplier: 1.0
     permission: 'group.default'
 
+# https://jd.papermc.io/paper/1.16.5/org/bukkit/entity/EntityType.html
+# ANY/ANIMALS/MONSTERS/AMBIENT/WATER_ANIMALS
 drop:
   ANIMALS: 1.0..3.0
   MONSTERS: 5.0..10.0

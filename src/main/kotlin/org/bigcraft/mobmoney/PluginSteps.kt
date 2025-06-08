@@ -88,7 +88,6 @@ object InitializeInjector : PluginStep<MobMoney> {
                 PluginModule(plugin),
                 DropModule,
                 ConfigModule,
-                PlaceholderModule,
                 CommandModule
             )
         } catch (e: CreationException) {
