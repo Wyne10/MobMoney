@@ -31,6 +31,7 @@ class KillListener @Inject constructor(
 
     @EventHandler
     fun onEntityDeath(e: EntityDeathEvent) {
+        if (e is MoneyDropEvent) return
         if (e.entity is Player) return
         if (e.entity.killer == null) return
         if (e.entity.killer !is Player) return
