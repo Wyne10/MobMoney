@@ -2,6 +2,7 @@ import net.minecrell.pluginyml.bukkit.BukkitPluginDescription
 
 plugins {
     kotlin("jvm") version "2.1.20"
+    `maven-publish`
     alias(libs.plugins.shadow)
     alias(libs.plugins.runPaper)
     alias(libs.plugins.pluginYml)
@@ -79,6 +80,32 @@ bukkit {
         }
         register("mobmoney.reload") {
             description = "Allows to reload plugin"
+        }
+    }
+}
+
+publishing {
+    repositories {
+        val repoUrl = findProperty("myMavenRepoWriteUrl").toString()
+        if (repoUrl.isNotEmpty()) {
+            maven {
+                url = uri(repoUrl)
+
+                credentials {
+                    username = findProperty("myMavenRepoWriteUsername").toString()
+                    password = findProperty("myMavenRepoWritePassword").toString()
+                }
+            }
+        }
+    }
+
+    publications {
+        create<MavenPublication>("maven") {
+            groupId = findProperty("group").toString()
+            artifactId = "MobMoney-core"
+            version = findProperty("version").toString()
+
+            from(components["java"])
         }
     }
 }

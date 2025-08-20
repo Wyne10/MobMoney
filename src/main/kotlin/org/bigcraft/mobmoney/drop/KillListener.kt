@@ -9,6 +9,7 @@ import net.kyori.adventure.text.Component
 import org.bigcraft.mobmoney.MobMoney
 import org.bigcraft.mobmoney.config.CurrencyConfig
 import org.bigcraft.mobmoney.config.MessageConfig
+import org.bigcraft.mobmoney.event.MoneyDropEvent
 import org.bukkit.Bukkit
 import org.bukkit.entity.Player
 import org.bukkit.event.EventHandler
@@ -35,7 +36,12 @@ class KillListener @Inject constructor(
         if (e.entity.killer !is Player) return
         val player = e.entity.killer as Player
         val entityType = e.entityType
-        val drop = dropManager.getDrop(entityType) * multiplierManager.getMultiplier(player)
+        val baseDrop = dropManager.getDrop(entityType)
+        val multiplier = multiplierManager.getMultiplier(player)
+        val event = MoneyDropEvent(e, player, baseDrop, multiplier)
+        if (!event.callEvent())
+            return
+        val drop = event.baseDrop * event.multiplier
         currencyConfig.currency.add(player.uniqueId, drop)
 
         val entityName: Component =
