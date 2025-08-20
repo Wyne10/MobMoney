@@ -31,7 +31,6 @@ class KillListener @Inject constructor(
 
     @EventHandler
     fun onEntityDeath(e: EntityDeathEvent) {
-        if (e is MoneyDropEvent) return
         if (e.entity is Player) return
         if (e.entity.killer == null) return
         if (e.entity.killer !is Player) return
@@ -39,7 +38,7 @@ class KillListener @Inject constructor(
         val entityType = e.entityType
         val baseDrop = dropManager.getDrop(entityType)
         val multiplier = multiplierManager.getMultiplier(player)
-        val event = MoneyDropEvent(e, player, baseDrop, multiplier)
+        val event = MoneyDropEvent(player, baseDrop, multiplier)
         if (!event.callEvent())
             return
         val drop = event.baseDrop * event.multiplier
