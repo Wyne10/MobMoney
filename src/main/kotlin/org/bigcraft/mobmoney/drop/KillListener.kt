@@ -7,9 +7,9 @@ import me.wyne.wutils.i18n.kotlin.placeholderComponent
 import me.wyne.wutils.i18n.kotlin.replaceComponent
 import net.kyori.adventure.text.Component
 import org.bigcraft.mobmoney.MobMoney
+import org.bigcraft.mobmoney.api.MoneyDropEvent
 import org.bigcraft.mobmoney.config.CurrencyConfig
 import org.bigcraft.mobmoney.config.MessageConfig
-import org.bigcraft.mobmoney.event.MoneyDropEvent
 import org.bukkit.Bukkit
 import org.bukkit.entity.Player
 import org.bukkit.event.EventHandler
