@@ -30,3 +30,17 @@ class MultiplierManager : AbstractManager<Multiplier>() {
             .maxOfOrNull { it.multiplier } ?: 1.0
 
 }
+
+@Singleton
+@LoadableMeta(priority = 0)
+class XpMultiplierManager : AbstractManager<Multiplier>() {
+
+    override val sectionKey = "xp-multiplier"
+    override val valueLoader = Multiplier.Factory
+
+    fun getMultiplier(player: Player): Double =
+        loadedMap.values
+            .filter { player.hasPermission(it.permission) }
+            .maxOfOrNull { it.multiplier } ?: 1.0
+
+}

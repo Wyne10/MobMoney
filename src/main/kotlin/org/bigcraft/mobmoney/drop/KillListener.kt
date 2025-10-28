@@ -21,6 +21,7 @@ class KillListener @Inject constructor(
     plugin: MobMoney,
     private val dropManager: DropManager,
     private val multiplierManager: MultiplierManager,
+    private val xpMultiplierManager: XpMultiplierManager,
     private val currencyConfig: CurrencyConfig,
     private val messageConfig: MessageConfig,
 ) : Listener {
@@ -38,6 +39,7 @@ class KillListener @Inject constructor(
         val entityType = e.entityType
         val baseDrop = dropManager.getDrop(entityType)
         val multiplier = multiplierManager.getMultiplier(player)
+        e.droppedExp = (e.droppedExp * xpMultiplierManager.getMultiplier(player)).toInt()
         val event = MoneyDropEvent(player, baseDrop, multiplier)
         if (!event.callEvent())
             return

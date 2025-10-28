@@ -6,6 +6,7 @@ import org.bigcraft.mobmoney.config.MessageConfig
 import org.bigcraft.mobmoney.drop.DropManager
 import org.bigcraft.mobmoney.drop.KillListener
 import org.bigcraft.mobmoney.drop.MultiplierManager
+import org.bigcraft.mobmoney.drop.XpMultiplierManager
 
 private class CoreModule(private vararg val modules: Class<out Any>) : AbstractModule() {
     override fun configure() {
@@ -15,4 +16,4 @@ private class CoreModule(private vararg val modules: Class<out Any>) : AbstractM
 
 val ConfigModule: AbstractModule = CoreModule(CurrencyConfig::class.java, MessageConfig::class.java)
 
-val DropModule: AbstractModule = CoreModule(DropManager::class.java, MultiplierManager::class.java, KillListener::class.java)
+val DropModule: AbstractModule = CoreModule(DropManager::class.java, MultiplierManager::class.java, XpMultiplierManager::class.java, KillListener::class.java)

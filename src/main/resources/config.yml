@@ -11,6 +11,11 @@ multiplier:
     multiplier: 1.0
     permission: 'group.default'
 
+xp-multiplier:
+  default:
+    multiplier: 1.0
+    permission: 'group.default'
+
 # https://jd.papermc.io/paper/1.16.5/org/bukkit/entity/EntityType.html
 # ANY/ANIMALS/MONSTERS/AMBIENT/WATER_ANIMALS
 drop:
