@@ -7,6 +7,7 @@ import me.wyne.wutils.common.loadable.Loader
 import org.bigcraft.mobmoney.MobMoney
 import org.bigcraft.mobmoney.extension.DoubleRange
 import org.bigcraft.mobmoney.extension.getDoubleRange
+import org.bigcraft.storm.api.StormApi
 import org.bukkit.configuration.ConfigurationSection
 import org.bukkit.entity.Ambient
 import org.bukkit.entity.Animals
@@ -25,6 +26,7 @@ class DropManager : Loadable {
 
     init {
         Loader.global.registerLoadable(this)
+        StormApi.getEffectRegistry().register(MultiplierStormEffect::class.java, "rich")
     }
 
     override fun load(config: ConfigurationSection) {

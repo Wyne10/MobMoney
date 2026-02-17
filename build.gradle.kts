@@ -15,6 +15,7 @@ dependencies {
     compileOnly(libs.paperApi)
     compileOnly(libs.commandApi)
     compileOnly(libs.infPoints)
+    compileOnly("org.bigcraft:Storm-api:1.0.0")
 
     implementation(project(":api"))
     implementation(libs.guice)
@@ -72,7 +73,7 @@ bukkit {
     author = findProperty("author").toString()
     main = "org.bigcraft.mobmoney.MobMoney"
     apiVersion = "1.16"
-    softDepend = listOf("CommandAPI", "InfPoints")
+    softDepend = listOf("CommandAPI", "InfPoints", "Storm")
     permissions {
         register("mobmoney.*") {
             children = listOf("mobmoney.reload")
