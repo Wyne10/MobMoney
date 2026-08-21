@@ -15,7 +15,7 @@ dependencies {
     compileOnly(libs.paperApi)
     compileOnly(libs.commandApi)
     compileOnly(libs.infPoints)
-    compileOnly("org.bigcraft:Storm-api:1.0.0")
+    compileOnly("org.bigcraft:Storm-api:1.1.0")
 
     implementation(project(":api"))
     implementation(libs.guice)
