@@ -6,6 +6,13 @@ import org.bukkit.event.HandlerList;
 import org.bukkit.event.player.PlayerEvent;
 import org.jetbrains.annotations.NotNull;
 
+/**
+ * Called when a player is about to be credited a money drop from a mob kill.
+ * <p>
+ * The amount ultimately granted is {@code baseDrop * multiplier}, computed by
+ * the caller after this event fires; listeners can adjust either value or
+ * cancel the event to prevent any money from being granted.
+ */
 public class MoneyDropEvent extends PlayerEvent implements Cancellable {
 
     private static final HandlerList HANDLER_LIST = new HandlerList();
@@ -14,6 +21,10 @@ public class MoneyDropEvent extends PlayerEvent implements Cancellable {
     private Double baseDrop;
     private Double multiplier;
 
+    /**
+     * @param baseDrop the base currency amount before {@code multiplier} is applied
+     * @param multiplier the multiplier applied on top of {@code baseDrop}
+     */
     public MoneyDropEvent(@NotNull Player player, Double baseDrop, Double multiplier) {
         super(player);
         this.baseDrop = baseDrop;
