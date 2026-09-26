@@ -1,7 +1,7 @@
-package org.bigcraft.mobmoney.module
+package me.wyne.mobmoney.module
 
 import com.google.inject.AbstractModule
-import org.bigcraft.mobmoney.MobMoney
+import me.wyne.mobmoney.MobMoney
 import org.bukkit.configuration.file.FileConfiguration
 import org.bukkit.plugin.Plugin
 

@@ -1,4 +1,4 @@
-package org.bigcraft.mobmoney.config
+package me.wyne.mobmoney.config
 
 import com.google.inject.Inject
 import com.google.inject.Singleton

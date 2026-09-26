@@ -1,9 +1,9 @@
-package org.bigcraft.mobmoney.module
+package me.wyne.mobmoney.module
 
 import com.google.inject.AbstractModule
-import org.bigcraft.mobmoney.MobMoney
-import org.bigcraft.mobmoney.command.MobMoneyCommand
-import org.bigcraft.mobmoney.drop.StormEffects
+import me.wyne.mobmoney.MobMoney
+import me.wyne.mobmoney.command.MobMoneyCommand
+import me.wyne.mobmoney.drop.StormEffects
 
 //region Implementations
 

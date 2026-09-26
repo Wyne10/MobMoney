@@ -1,4 +1,4 @@
-package org.bigcraft.mobmoney
+package me.wyne.mobmoney
 
 import com.google.inject.CreationException
 import com.google.inject.Guice
@@ -17,13 +17,13 @@ import me.wyne.wutils.i18n.language.component.BukkitComponentAudiences
 import me.wyne.wutils.i18n.language.interpretation.ComponentInterpreters
 import me.wyne.wutils.i18n.language.validation.EmptyValidator
 import net.kyori.adventure.platform.bukkit.BukkitAudiences
-import org.bigcraft.mobmoney.MobMoney.Companion.EMPTY_CONFIGURATION
-import org.bigcraft.mobmoney.MobMoney.Companion.logger
-import org.bigcraft.mobmoney.module.CommandModule
-import org.bigcraft.mobmoney.module.ConfigModule
-import org.bigcraft.mobmoney.module.DropModule
-import org.bigcraft.mobmoney.module.PluginModule
-import org.bigcraft.mobmoney.module.StormModule
+import me.wyne.mobmoney.MobMoney.Companion.EMPTY_CONFIGURATION
+import me.wyne.mobmoney.MobMoney.Companion.logger
+import me.wyne.mobmoney.module.CommandModule
+import me.wyne.mobmoney.module.ConfigModule
+import me.wyne.mobmoney.module.DropModule
+import me.wyne.mobmoney.module.PluginModule
+import me.wyne.mobmoney.module.StormModule
 
 @Step(priority = 0, scope = StepScope.ENABLE)
 object LoadDefaultConfig : PluginStep<MobMoney> {

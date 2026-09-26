@@ -1,9 +1,9 @@
-package org.bigcraft.mobmoney.drop
+package me.wyne.mobmoney.drop
 
 import com.google.inject.Inject
 import com.google.inject.Singleton
 import me.wyne.storm.api.StormApi
-import org.bigcraft.mobmoney.MobMoney
+import me.wyne.mobmoney.MobMoney
 
 @Singleton
 class StormEffects @Inject constructor() {

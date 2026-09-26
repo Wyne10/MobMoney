@@ -1,10 +1,10 @@
-package org.bigcraft.mobmoney.drop
+package me.wyne.mobmoney.drop
 
 import com.google.inject.Singleton
 import me.wyne.wutils.common.kotlin.config.deep
 import me.wyne.wutils.common.loadable.LoadableMeta
 import me.wyne.wutils.config.configurables.attribute.GenericFactory
-import org.bigcraft.mobmoney.LoadableProvider
+import me.wyne.mobmoney.LoadableProvider
 import org.bukkit.configuration.ConfigurationSection
 import org.bukkit.entity.Player
 

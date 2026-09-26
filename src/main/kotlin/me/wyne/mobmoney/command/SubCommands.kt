@@ -1,9 +1,9 @@
-package org.bigcraft.mobmoney.command
+package me.wyne.mobmoney.command
 
 import dev.jorel.commandapi.CommandAPICommand
 import dev.jorel.commandapi.executors.CommandExecutor
 import me.wyne.wutils.i18n.kotlin.placeholderComponent
-import org.bigcraft.mobmoney.MobMoney
+import me.wyne.mobmoney.MobMoney
 
 abstract class SubCommand(argument: String) {
     open val command = CommandAPICommand(argument)

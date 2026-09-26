@@ -1,4 +1,4 @@
-package org.bigcraft.mobmoney.api;
+package me.wyne.mobmoney.api;
 
 import org.bukkit.entity.Player;
 import org.bukkit.event.Cancellable;

@@ -1,4 +1,4 @@
-package org.bigcraft.mobmoney.config
+package me.wyne.mobmoney.config
 
 import com.google.inject.Inject
 import com.google.inject.Singleton
@@ -13,7 +13,7 @@ import me.wyne.wutils.i18n.language.replacement.TextReplacement
 @Singleton
 class CurrencyConfig @Inject constructor() {
 
-    @ConfigEntry(section = "Currency")
+    @ConfigEntry(section = "Currency", comment = "Key of the InfPoints point kills are paid in")
     val currencyKey = "primary"
 
     val currency: Point

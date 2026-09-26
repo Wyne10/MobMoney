@@ -1,4 +1,4 @@
-package org.bigcraft.mobmoney
+package me.wyne.mobmoney
 
 import com.google.inject.Injector
 import me.wyne.wutils.common.plugin.CompositeJavaPlugin

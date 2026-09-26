@@ -39,10 +39,11 @@ tasks {
         archiveClassifier.set("")
         minimize()
         if (!isDebug) {
-            relocate("com.google.inject", "org.bigcraft.mobmoney.shadow.google.guice")
-            relocate("com.google.common", "org.bigcraft.mobmoney.shadow.google.common")
-            relocate("net.kyori", "org.bigcraft.mobmoney.shadow.net.kyori")
-            relocate("me.wyne.wutils", "org.bigcraft.mobmoney.shadow.wutils")
+            relocate("com.google.inject", "me.wyne.mobmoney.shadow.google.guice")
+            relocate("com.google.common", "me.wyne.mobmoney.shadow.google.common")
+            relocate("net.kyori", "me.wyne.mobmoney.shadow.net.kyori")
+            relocate("dev.vankka", "me.wyne.mobmoney.shadow.dev.vankka")
+            relocate("me.wyne.wutils", "me.wyne.mobmoney.shadow.wutils")
         }
     }
 
@@ -81,7 +82,7 @@ bukkit {
     version = getVersion().toString()
     website = findProperty("website").toString()
     author = findProperty("author").toString()
-    main = "org.bigcraft.mobmoney.MobMoney"
+    main = "me.wyne.mobmoney.MobMoney"
     apiVersion = "1.16"
     depend = listOf("InfPoints")
     softDepend = listOf("CommandAPI", "Storm")

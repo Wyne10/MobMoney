@@ -1,7 +1,7 @@
-package org.bigcraft.mobmoney.drop
+package me.wyne.mobmoney.drop
 
 import me.wyne.storm.api.StormEffect
-import org.bigcraft.mobmoney.api.MoneyDropEvent
+import me.wyne.mobmoney.api.MoneyDropEvent
 import org.bukkit.configuration.ConfigurationSection
 import org.bukkit.event.EventHandler
 

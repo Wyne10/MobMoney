@@ -1,4 +1,4 @@
-package org.bigcraft.mobmoney.drop
+package me.wyne.mobmoney.drop
 
 import com.google.inject.Inject
 import com.google.inject.Singleton
@@ -6,10 +6,10 @@ import me.wyne.wutils.i18n.I18n
 import me.wyne.wutils.i18n.kotlin.placeholderComponent
 import me.wyne.wutils.i18n.kotlin.replaceComponent
 import net.kyori.adventure.text.Component
-import org.bigcraft.mobmoney.MobMoney
-import org.bigcraft.mobmoney.api.MoneyDropEvent
-import org.bigcraft.mobmoney.config.CurrencyConfig
-import org.bigcraft.mobmoney.config.MessageConfig
+import me.wyne.mobmoney.MobMoney
+import me.wyne.mobmoney.api.MoneyDropEvent
+import me.wyne.mobmoney.config.CurrencyConfig
+import me.wyne.mobmoney.config.MessageConfig
 import org.bukkit.Bukkit
 import org.bukkit.entity.Player
 import org.bukkit.event.EventHandler

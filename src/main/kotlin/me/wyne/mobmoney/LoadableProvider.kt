@@ -1,4 +1,4 @@
-package org.bigcraft.mobmoney
+package me.wyne.mobmoney
 
 import me.wyne.wutils.common.loadable.Loadable
 import me.wyne.wutils.common.loadable.Loader
