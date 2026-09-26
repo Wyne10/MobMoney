@@ -1,7 +1,8 @@
 import net.minecrell.pluginyml.bukkit.BukkitPluginDescription
+import org.codehaus.plexus.util.Os
 
 plugins {
-    kotlin("jvm") version "2.1.20"
+    kotlin("jvm") version "2.4.20"
     alias(libs.plugins.shadow)
     alias(libs.plugins.runPaper)
     alias(libs.plugins.pluginYml)
@@ -15,25 +16,29 @@ dependencies {
     compileOnly(libs.paperApi)
     compileOnly(libs.commandApi)
     compileOnly(libs.infPoints)
-    compileOnly("org.bigcraft:Storm-api:1.1.0")
+    compileOnly(libs.storm)
 
     implementation(project(":api"))
     implementation(libs.guice)
+    implementation(libs.enhancedLegacy)
     implementation(libs.adventureMini)
     implementation(libs.adventureBukkit)
+    implementation(libs.adventurePlain)
 
     implementation(libs.wutilsConfig)
-    implementation(libs.wutilsLog)
+    implementation(libs.wutilsConfigurables)
     implementation(libs.wutilsI18nKotlin)
-    implementation(libs.wutilsCommon)
+    implementation(libs.wutilsCommonKotlin)
 }
 
 tasks {
+    val isDebug = findProperty("debug")?.toString()?.toBoolean() ?: false
+
     shadowJar {
         archiveBaseName.set(findProperty("name").toString())
         archiveClassifier.set("")
         minimize()
-        if ((findProperty("debug") ?: false) == false) {
+        if (!isDebug) {
             relocate("com.google.inject", "org.bigcraft.mobmoney.shadow.google.guice")
             relocate("com.google.common", "org.bigcraft.mobmoney.shadow.google.common")
             relocate("net.kyori", "org.bigcraft.mobmoney.shadow.net.kyori")
@@ -42,15 +47,20 @@ tasks {
     }
 
     runServer {
+        val minecraftVersion: String = if (Os.isFamily(Os.FAMILY_WINDOWS) || isDebug) "1.19.4" else "1.16.5"
+        val viaVersion = "5.12.0"
+        val commandApiVersion = "9.4.2"
         downloadPlugins {
-            url("https://ci.extendedclip.com/view/Plugins/job/PlaceholderAPI/197/artifact/build/libs/PlaceholderAPI-2.11.6.jar")
-            url("https://download.luckperms.net/1584/bukkit/loader/LuckPerms-Bukkit-5.5.0.jar")
-            url("https://ci.dmulloy2.net/job/ProtocolLib/lastSuccessfulBuild/artifact/build/libs/ProtocolLib.jar")
-            github("ViaVersion", "ViaVersion", "5.2.1", "ViaVersion-5.2.1.jar")
-            github("ViaVersion", "ViaBackwards", "5.2.1", "ViaBackwards-5.2.1.jar")
-            github("CommandAPI", "CommandAPI", "9.7.0", "CommandAPI-9.7.0.jar")
+            url("https://download.luckperms.net/1672/bukkit/loader/LuckPerms-Bukkit-5.5.85.jar")
+            github("PlaceholderAPI", "PlaceholderAPI", "2.12.3", "PlaceholderAPI-2.12.3.jar")
+            github("dmulloy2", "ProtocolLib", "5.4.0", "ProtocolLib.jar")
+            github("ViaVersion", "ViaVersion", viaVersion, "ViaVersion-$viaVersion.jar")
+            github("ViaVersion", "ViaBackwards", viaVersion, "ViaBackwards-$viaVersion.jar")
+            github("CommandAPI", "CommandAPI", commandApiVersion, "CommandAPI-$commandApiVersion.jar")
+            github("Wyne10", "InfPoints-public", "3.0.0", "InfPoints-3.0.0.jar")
         }
-        minecraftVersion("1.21.3")
+        runDirectory(layout.projectDirectory.dir("run-$minecraftVersion").asFile)
+        minecraftVersion(minecraftVersion)
     }
 
     compileJava {
@@ -63,7 +73,7 @@ tasks.withType(xyz.jpenilla.runtask.task.AbstractRun::class) {
         vendor = JvmVendorSpec.JETBRAINS
         languageVersion = JavaLanguageVersion.of(21)
     }
-    jvmArgs("-XX:+AllowEnhancedClassRedefinition")
+    jvmArgs("-XX:+AllowEnhancedClassRedefinition", "-DPaper.IgnoreJavaVersion=true")
 }
 
 bukkit {
@@ -73,7 +83,8 @@ bukkit {
     author = findProperty("author").toString()
     main = "org.bigcraft.mobmoney.MobMoney"
     apiVersion = "1.16"
-    softDepend = listOf("CommandAPI", "InfPoints", "Storm")
+    depend = listOf("InfPoints")
+    softDepend = listOf("CommandAPI", "Storm")
     permissions {
         register("mobmoney.*") {
             children = listOf("mobmoney.reload")
